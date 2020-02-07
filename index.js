@@ -3,9 +3,9 @@ const express = require('express');
 
 const app = express();
 
-app.get('api/prices', (req, res) => {
+app.get('/api/prices', (req, res) => {
   binance('RVNBTC', data => {
-    res.send(res);
+    res.send(data);
   });
 });
 
