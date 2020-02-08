@@ -13,6 +13,16 @@ app.get('/api/prices', (req, res) => {
   });
 });
 
+app.get('/api/pairings', (req, res) => {
+  const sql = 'SELECT * FROM Pairings';
+  database.all(sql, [], (err, rows) => {
+    if (err) {
+      console.log(err.message);
+    }
+    res.send(rows);
+  });
+});
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
