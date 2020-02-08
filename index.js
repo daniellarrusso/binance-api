@@ -12,5 +12,5 @@ app.get('/api/prices', (req, res) => {
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`Our app is running on port ${PORT}`);
+  console.log(`Our app is running on port ${port}`);
 });
