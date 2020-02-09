@@ -1,16 +1,22 @@
 const binance = require('./credentials');
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const database = require('./database');
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/api/prices', (req, res) => {
   binance('RVNBTC', data => {
     res.send(data);
   });
+});
+
+app.post('/api/buy' + buy, (req, res) => {
+  return { message: 'bought something' };
 });
 
 app.get('/api/pairings', (req, res) => {
