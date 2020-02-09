@@ -8,8 +8,9 @@ const app = express();
 
 app.use(bodyParser.json()).use(cors());
 
-app.get('/api/prices', (req, res) => {
-  binance('RVNBTC', data => {
+app.get('/api/price', (req, res) => {
+  const pair = req.query.pair;
+  binance(pair, data => {
     res.send(data);
   });
 });
@@ -19,7 +20,7 @@ app.post('/api/buy', (req, res) => {
   if (buy.authToken !== 'goJetter0220') {
     return res.status(401).send('Not Authorised');
   }
-  res.send(buy);
+  res.send({ message: `${buy.pair} buy filled for ${buy.quantity}` });
 });
 
 app.get('/api/pairings', (req, res) => {
