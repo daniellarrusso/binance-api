@@ -15,7 +15,7 @@ app.get('/api/prices', (req, res) => {
 });
 
 app.post('/api/buy', (req, res) => {
-  return { message: 'bought something' };
+  res.send(req.body);
 });
 
 app.get('/api/pairings', (req, res) => {
