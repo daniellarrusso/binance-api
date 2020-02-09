@@ -6,8 +6,7 @@ const database = require('./database');
 
 const app = express();
 
-app.use(bodyParser.json());
-app.use(cors());
+app.use(bodyParser.json()).use(cors());
 
 app.get('/api/prices', (req, res) => {
   binance('RVNBTC', data => {
