@@ -17,7 +17,7 @@ app.get('/api/prices', (req, res) => {
 app.post('/api/buy', (req, res) => {
   const buy = req.body;
   if (buy.authToken !== 'goJetter0220') {
-    res.send(new Error('Invalid token'));
+    return res.status(401).send('Not Authorised');
   }
   res.send(buy);
 });
