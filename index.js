@@ -19,7 +19,7 @@ app.post('/api/buy', (req, res) => {
   if (buy.authToken !== 'goJetter0220') {
     res.send(new Error('Invalid token'));
   }
-  res.send(req.body);
+  res.send(buy);
 });
 
 app.get('/api/pairings', (req, res) => {
